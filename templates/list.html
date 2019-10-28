@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>習慣一覧</h1>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>著者・作者</th>
+                <th>出版社</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.auther }}</td>
+                <td>{{ book.publisher }}</td>
+            </tr>
+            {% else %}
+                <td>書籍が登録されていません</td>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
