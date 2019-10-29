@@ -17,7 +17,7 @@ def index():
           .bucket('by_am_pm', 'terms', field='am_pm')\
           .bucket('by_category', 'terms', field='category')\
           .bucket('by_time', 'terms', field='time')\
-          .bucket('latest_my_max_field', 'bucket_sort', sort=[{'by_date':{'order':'desc'}}])
+          .bucket('latest_my_max_field', 'bucket_sort', sort=[{'_key':{'order':'desc'}}])
     response = s.execute()
     rows = []
     for tag1 in response.aggregations.by_date.buckets:
