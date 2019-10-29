@@ -20,12 +20,15 @@ def index():
     response = s.execute()
     rows = []
     for tag1 in response.aggregations.by_date.buckets:
-        entry = {'id':tag1.key_as_string}
+        items = []
+        entry = {'id':tag1.key_as_string, 'title':tag1.doc_count}
         rows.append(entry)
         for tag2 in tag1.by_category.buckets:
             for tag3 in tag2.by_am_pm.buckets:
                 for tag4 in tag3.by_time.buckets:
-                    print(tag1.key_as_string+str(tag2.key)+tag3.key+str(tag4.key))
+                    item = {'category':str(tag2.key), 'am_pm':tag3.key, 'time':str(tag4.key)}
+                    items.append(item)
+                    print(items)
 
     return render_template('list.html', books=rows)
 
