@@ -19,8 +19,8 @@ def index():
           .bucket('by_time', 'terms', field='time')
     response = s.execute()
     rows = []
-    items = []
     for tag1 in response.aggregations.by_date.buckets:
+        items = []
         print(rows)
         entry = {'id':tag1.key_as_string, 'title':tag1.doc_count}
         rows.append(entry)
