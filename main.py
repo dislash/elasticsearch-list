@@ -13,11 +13,11 @@ elastic = Elasticsearch([{'host': '34.97.218.155', 'port': 9200}])
 @app.route("/")
 def index():
     s = Search(using=elastic, index="daily")
+    s= s.sort({"date" : {"order" : "desc"}})
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day')\
           .bucket('by_am_pm', 'terms', field='am_pm')\
           .bucket('by_category', 'terms', field='category')\
           .bucket('by_time', 'terms', field='time')
-    s= s.sort({"date" : {"order" : "desc"}})
     response = s.execute()
     rows = []
     for tag1 in response.aggregations.by_date.buckets:
