@@ -25,7 +25,7 @@ def index():
         for tag2 in tag1.by_category.buckets:
             for tag3 in tag2.by_am_pm.buckets:
                 for tag4 in tag3.by_time.buckets:
-                    print(tag1.key_as_string+tag2.key+str(tag3.key)+str(tag4.key))
+                    print(tag1.key_as_string+str(tag2.key)+tag3.key+str(tag4.key))
 
     return render_template('list.html', books=rows)
 
