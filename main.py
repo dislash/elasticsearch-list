@@ -16,8 +16,8 @@ def index():
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day')\
           .bucket('by_am_pm', 'terms', field='am_pm')\
           .bucket('by_category', 'terms', field='category')\
-          .bucket('by_time', 'terms', field='time')\
-          .sort("date", {'order': "desc"})
+          .bucket('by_time', 'terms', field='time')
+    s.sort("date", {'order': "desc"})
     response = s.execute()
     rows = []
     for tag1 in response.aggregations.by_date.buckets:
