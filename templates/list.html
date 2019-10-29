@@ -16,7 +16,7 @@
             <tr>
                 <td>{{ book.id }}</td>
                 <td>{{ book.title }}</td>
-                {% for item in book.id %}
+                {% for item in book[book.id] %}
                     <td>{{ item.category }}</td>
                     <td>{{ item.time }}</td>
                 {% endfor %}
