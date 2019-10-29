@@ -16,8 +16,10 @@
             <tr>
                 <td>{{ book.id }}</td>
                 <td>{{ book.title }}</td>
-                <td>{{ book.auther }}</td>
-                <td>{{ book.publisher }}</td>
+                {% for item in book.id %}
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.time }}</td>
+                {% endfor %}
             </tr>
             {% else %}
                 <td>書籍が登録されていません</td>
