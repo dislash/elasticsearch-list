@@ -21,7 +21,7 @@ def index():
     rows = []
     items = []
     for tag1 in response.aggregations.by_date.buckets:
-        print(items)
+        print(rows)
         entry = {'id':tag1.key_as_string, 'title':tag1.doc_count}
         rows.append(entry)
         for tag2 in tag1.by_category.buckets:
@@ -29,6 +29,7 @@ def index():
                 for tag4 in tag3.by_time.buckets:
                     item = {'category':str(tag2.key), 'am_pm':tag3.key, 'time':str(tag4.key)}
                     items.append(item)
+                    entry[tag1.key_as_string]=items
 
     return render_template('list.html', books=rows)
 
