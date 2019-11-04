@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             {% for book in books %}
-                {% if book.title > 0 %} 
+                {% if int(book.title) > 0 %} 
                 <tr>
                     <td>{{ book.id }}</td>
                     <td>{{ book.title }}</td>
