@@ -194,8 +194,8 @@ def index():
     rows = []
     for tag1 in response['aggregations']['by_date']['buckets']:
         items = []
-        if tag1['category_1']['am']['doc_count'] == 1:
-            entry = {'id':tag1['key_as_string'], 'title':tag1['doc_count'], 'category_1': tag1['category_1']['doc_count'], 'am': tag1['category_1']['am']['doc_count'], 'time': tag1['category_1']['am']['by_time']['buckets'][0]['key']}
+        if tag1['1']['am']['doc_count'] == 1:
+            entry = {'id':tag1['key_as_string'], 'title':tag1['doc_count'], 'category_1': tag1['1']['doc_count'], 'am': tag1['1']['am']['doc_count'], 'time': tag1['1']['am']['by_time']['buckets'][0]['key']}
             rows.append(entry)
         #for tag2 in tag1.category_1:
         #    item = {'1amtime':tag2.doc_count}
