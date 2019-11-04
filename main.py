@@ -202,6 +202,30 @@ def index():
             entry['1_pm_time'] = tag1['1']['pm']['by_time']['buckets'][0]['key']
         else:
             entry['1_pm_time'] = 0
+        if tag1['2']['am']['doc_count'] == 1:
+            entry['2_am_time'] = tag1['2']['am']['by_time']['buckets'][0]['key']
+        else:
+            entry['2_am_time'] = 0
+        if tag1['2']['pm']['doc_count'] == 1:
+            entry['2_pm_time'] = tag1['2']['pm']['by_time']['buckets'][0]['key']
+        else:
+            entry['2_pm_time'] = 0
+        if tag1['3']['am']['doc_count'] == 1:
+            entry['3_am_time'] = tag1['3']['am']['by_time']['buckets'][0]['key']
+        else:
+            entry['3_am_time'] = 0
+        if tag1['3']['pm']['doc_count'] == 1:
+            entry['3_pm_time'] = tag1['3']['pm']['by_time']['buckets'][0]['key']
+        else:
+            entry['3_pm_time'] = 0
+        if tag1['4']['am']['doc_count'] == 1:
+            entry['4_am_time'] = tag1['4']['am']['by_time']['buckets'][0]['key']
+        else:
+            entry['4_am_time'] = 0
+        if tag1['4']['pm']['doc_count'] == 1:
+            entry['4_pm_time'] = tag1['4']['pm']['by_time']['buckets'][0]['key']
+        else:
+            entry['4_pm_time'] = 0
         rows.append(entry)
         #for tag2 in tag1.category_1:
         #    item = {'1amtime':tag2.doc_count}
