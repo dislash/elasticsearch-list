@@ -232,7 +232,7 @@ def index():
         #    items.append(item)
         #    entry[tag1.key_as_string]=items
     print(rows)
-    return render_template('list.html', books=rows)
+    return render_template('list.html', dailys=rows)
 
 if __name__ == "__main__":
 #    app.run()
