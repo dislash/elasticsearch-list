@@ -29,34 +29,34 @@
                     <td>{{ book.id }}</td>
                     {% for item in book[book.id] %}
                         {% if item.category == '1' %}
-                            {% item.am_pm == 'am' %}
+                            {% if item.am_pm == 'am' %}
                                 <td>{{ item.time }}</td>
                             {% endif%}
-                            {% item.am_pm == 'pm' %}
+                            {% if item.am_pm == 'pm' %}
                                 <td>{{ item.time }}</td>
                             {% endif%}
                         {% endif %}
                         {% if item.category == '2' %}
-                            {% item.am_pm == 'am' %}
+                            {% if item.am_pm == 'am' %}
                                 <td>{{ item.time }}</td>
                             {% endif%}
-                            {% item.am_pm == 'pm' %}
+                            {% if item.am_pm == 'pm' %}
                                 <td>{{ item.time }}</td>
                             {% endif%}
                         {% endif %}
                         {% if item.category == '3' %}
-                            {% item.am_pm == 'am' %}
+                            {% if item.am_pm == 'am' %}
                                 <td>{{ item.time }}</td>
                             {% endif%}
-                            {% item.am_pm == 'pm' %}
+                            {% if item.am_pm == 'pm' %}
                                 <td>{{ item.time }}</td>
                             {% endif%}
                         {% endif %}
                         {% if item.category == '4' %}
-                            {% item.am_pm == 'am' %}
+                            {% if item.am_pm == 'am' %}
                                 <td>{{ item.time }}</td>
                             {% endif%}
-                            {% item.am_pm == 'pm' %}
+                            {% if item.am_pm == 'pm' %}
                                 <td>{{ item.time }}</td>
                             {% endif%}
                         {% endif %}
