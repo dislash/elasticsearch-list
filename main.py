@@ -15,7 +15,7 @@ def index():
     s = Search(using=elastic, index="daily")
     category_1 = Q('term',category=1)
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
-          .bucket('1', 'filter', query.Q('term', category=1))\
+          .bucket('category_1', 'filter', query.Q('term', category=1))\
           .bucket('am', 'filter', query.Q('term', am_pm='am'))\
           .bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
           .bucket('by_time', 'terms', field='time')
@@ -25,7 +25,7 @@ def index():
         items = []
         entry = {'id':tag1.key_as_string, 'title':tag1.doc_count}
         rows.append(entry)
-        for tag2 in tag1.1.am.by_time.buckets:
+        for tag2 in tag1.category_1.am.by_time.buckets:
             item = {'1amtime':str(tag4.key)}
             items.append(item)
             entry[tag1.key_as_string]=items
