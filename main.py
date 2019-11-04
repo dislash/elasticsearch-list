@@ -25,8 +25,8 @@ def index():
         items = []
         entry = {'id':tag1.key_as_string, 'title':tag1.doc_count}
         rows.append(entry)
-        for tag2 in tag1.category_1.am.by_time.buckets:
-            item = {'1amtime':str(tag4.key)}
+        for tag2 in tag1.category_1:
+            item = {'1amtime':tag2.doc_count}
             items.append(item)
             entry[tag1.key_as_string]=items
     print(rows)
