@@ -28,20 +28,25 @@
                 <tr>
                     <td>{{ book.id }}</td>
                     {% for item in book[book.id] %}
-                        {% if item.category == '1' %}
+                        {% if item.category == '1' and item.am_pm == 'am' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
-                            <td colspan="2">-</td>
-                            {% if item.category == '2' %}
+                            <td>-</td>
+                            {% if item.category == '1' and item.am_pm == 'pm' %}
                                 <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                             {% else %}
-                                <td colspan="2">-</td>
-                                {% if item.category == '3' %}
+                                <td>-</td>
+                                {% if item.category == '2' %}
                                     <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                                 {% else %}
                                     <td colspan="2">-</td>
-                                    {% if item.category == '4' %}
+                                    {% if item.category == '3' %}
                                         <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
+                                    {% else %}
+                                        <td colspan="2">-</td>
+                                        {% if item.category == '4' %}
+                                            <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
+                                        {% endif %}
                                     {% endif %}
                                 {% endif %}
                             {% endif %}
