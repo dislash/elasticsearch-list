@@ -26,7 +26,7 @@ def index():
         for tag2 in tag1.by_category.buckets:
             for tag3 in tag2.by_am_pm.buckets:
                 for tag4 in tag3.by_time.buckets:
-                    item = {'category':str(tag2.key), 'am_pm':tag3.key, 'time':str(tag4.key)}
+                    item = {'category_count':tag2.doc_count, 'category':str(tag2.key), 'am_pm':tag3.key, 'time':str(tag4.key)}
                     items.append(item)
                     entry[tag1.key_as_string]=items
     print(rows)
