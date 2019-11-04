@@ -198,7 +198,6 @@ def index():
             entry['1_am_time'] = tag1['1']['am']['by_time']['buckets'][0]['key']
         else:
             entry['1_am_time'] = 0
-        endif
         if tag1['1']['pm']['doc_count'] == 1:
             entry['1_pm_time'] = tag1['1']['pm']['by_time']['buckets'][0]['key']
         else:
