@@ -2,7 +2,7 @@
 
 from flask import Flask, request, render_template
 from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search
+from elasticsearch_dsl import Search, Q, Filter
 import os
 
 app = Flask(__name__)
@@ -13,9 +13,9 @@ elastic = Elasticsearch([{'host': '34.97.218.155', 'port': 9200}])
 @app.route("/")
 def index():
     s = Search(using=elastic, index="daily")
-    category_1 = Q('term',category=1)
+    category_1 = Filter(Q('term',category=1))
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
-          .filter(category_1)\
+          .bucket('1', category_1)\
           .bucket('am', 'terms', field='am_pm')\
           .bucket('by_time', 'terms', field='time')
     response = s.execute()
