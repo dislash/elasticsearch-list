@@ -17,13 +17,14 @@ def index():
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
           .bucket('category_1', 'filter', query.Q('term', category=1))\
           .bucket('am', 'filter', query.Q('term', am_pm='am'))\
+          .bucket('by_time', 'terms', field='time')
           .bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
           .bucket('by_time', 'terms', field='time')
     response = s.execute()
     rows = []
     for tag1 in response.aggregations.by_date.buckets:
         items = []
-        entry = {'id':tag1.key_as_string, 'title':tag1.doc_count, 'category_1': tag1.category_1.doc_count, 'am': tag1.category_1.am.doc_count, 'pm': tag1.category_1.am.pm.doc_count}
+        entry = {'id':tag1.key_as_string, 'title':tag1.doc_count, 'category_1': tag1.category_1.doc_count, 'am': tag1.category_1.am.doc_count, 'pm': tag1.category_1.am.by_time.buckets[0].key}
         rows.append(entry)
         #for tag2 in tag1.category_1:
         #    item = {'1amtime':tag2.doc_count}
