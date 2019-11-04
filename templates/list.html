@@ -28,21 +28,21 @@
                 <tr>
                     <td>{{ book.id }}</td>
                     {% for item in book[book.id] %}
-                        {% if item.category == '1' && item.am_pm == 'am' %}
+                        {% if item.category == '1' and item.am_pm == 'am' %}
                             <td>{{ item.time }}</td>
-                        {% elsif  item.category == '1' && item.am_pm == 'pm' %}
+                        {% elsif  item.category == '1' and item.am_pm == 'pm' %}
                             <td>{{ item.time }}</td>
-                        {% elsif item.category == '2' && item.am_pm == 'am' %}
+                        {% elsif item.category == '2' and item.am_pm == 'am' %}
                             <td>{{ item.time }}</td>
-                        {% elsif item.category == '2' && item.am_pm == 'pm' %}
+                        {% elsif item.category == '2' and item.am_pm == 'pm' %}
                             <td>{{ item.time }}</td>
-                        {% elsif item.category == '3' && item.am_pm == 'am' %}
+                        {% elsif item.category == '3' and item.am_pm == 'am' %}
                             <td>{{ item.time }}</td>
-                        {% elsif item.category == '3' && item.am_pm == 'pm' %}
+                        {% elsif item.category == '3' and item.am_pm == 'pm' %}
                             <td>{{ item.time }}</td>
-                        {% elsif item.category == '4' && item.am_pm == 'am' %}
+                        {% elsif item.category == '4' and item.am_pm == 'am' %}
                             <td>{{ item.time }}</td>
-                        {% elsif item.category == '4' && item.am_pm == 'pm' %}
+                        {% elsif item.category == '4' and item.am_pm == 'pm' %}
                             <td>{{ item.time }}</td>
                         {% endif %}
                     {% endfor %}
