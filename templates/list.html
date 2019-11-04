@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 {% block body %}
-<h1>習慣一覧</h1>
+<h1>daily list</h1>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>タイトル</th>
-                <th>著者・作者</th>
-                <th>出版社</th>
+                <th rowspan="2">date</th>
+                <th colspan="2">reading</th>
+                <th colspan="2">exercise</th>
+                <th colspan="2">coding</th>
+                <th colspan="2">english</th>
+            </tr>
+            <tr>
+                <th>am</th>
+                <th>pm</th>
+                <th>am</th>
+                <th>pm</th>
+                <th>am</th>
+                <th>pm</th>
+                <th>am</th>
+                <th>pm</th>
             </tr>
         </thead>
         <tbody>
@@ -16,7 +27,6 @@
                 {% if int(book.title) > 0 %} 
                 <tr>
                     <td>{{ book.id }}</td>
-                    <td>{{ book.title }}</td>
                     {% for item in book[book.id] %}
                         <td>{{ item.category }}</td>
                         <td>{{ item.time }}</td>
