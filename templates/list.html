@@ -23,6 +23,49 @@
             </tr>
         </thead>
         <tbody>
+            {% for book in books %}
+                {% if int(book.title) > 0 %} 
+                <tr>
+                    <td>{{ book.id }}</td>
+                    {% for item in book[book.id] %}
+                        {% if item.category == '1' %}
+                            {% item.am_pm == 'am' %}
+                                <td>{{ item.time }}</td>
+                            {% endif%}
+                            {% item.am_pm == 'pm' %}
+                                <td>{{ item.time }}</td>
+                            {% endif%}
+                        {% endif %}
+                        {% if item.category == '2' %}
+                            {% item.am_pm == 'am' %}
+                                <td>{{ item.time }}</td>
+                            {% endif%}
+                            {% item.am_pm == 'pm' %}
+                                <td>{{ item.time }}</td>
+                            {% endif%}
+                        {% endif %}
+                        {% if item.category == '3' %}
+                            {% item.am_pm == 'am' %}
+                                <td>{{ item.time }}</td>
+                            {% endif%}
+                            {% item.am_pm == 'pm' %}
+                                <td>{{ item.time }}</td>
+                            {% endif%}
+                        {% endif %}
+                        {% if item.category == '4' %}
+                            {% item.am_pm == 'am' %}
+                                <td>{{ item.time }}</td>
+                            {% endif%}
+                            {% item.am_pm == 'pm' %}
+                                <td>{{ item.time }}</td>
+                            {% endif%}
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endif %}
+            {% else %}
+                <td>書籍が登録されていません</td>
+            {% endfor %}
         </tbody>
     </table>
 </div>
