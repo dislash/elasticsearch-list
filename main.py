@@ -20,7 +20,7 @@ def index():
                         .bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
                         .bucket('by_time', by_time)
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
-          .bucket('category_1_am', category_1_am)
+          .bucket('category_1_am', category_1_am)\
           .bucket('category_1_pm', category_1_pm)
           #.bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
           #.bucket('by_time', 'terms', field='time')
