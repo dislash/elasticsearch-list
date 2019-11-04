@@ -14,7 +14,7 @@ elastic = Elasticsearch([{'host': '34.97.218.155', 'port': 9200}])
 def index():
     s = Search(using=elastic, index="daily")
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
-          .bucket('by_category', 'terms', field='category')\
+          .bucket('by_category', filter={'term', 'category'=1})\
           .bucket('by_am_pm', 'terms', field='am_pm')\
           .bucket('by_time', 'terms', field='time')
     response = s.execute()
@@ -26,7 +26,7 @@ def index():
         for tag2 in tag1.by_category.buckets:
             for tag3 in tag2.by_am_pm.buckets:
                 for tag4 in tag3.by_time.buckets:
-                    item = {'category_count':tag2.doc_count, 'category':str(tag2.key), 'am_pm':tag3.key, 'time':str(tag4.key)}
+                    item = {'category_count':tag2.doc_count, 'category':'1', 'am_pm':tag3.key, 'time':str(tag4.key)}
                     items.append(item)
                     entry[tag1.key_as_string]=items
     print(rows)
