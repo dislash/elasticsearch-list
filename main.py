@@ -2,7 +2,7 @@
 
 from flask import Flask, request, render_template
 from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search, Q
+from elasticsearch_dsl import Search, Q, A
 import os
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ def index():
     s = Search(using=elastic, index="daily")
     category_1 = Q('term',category=1)
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
-          .filter('1', category_1)\
+          .A('1', category_1)\
           .bucket('am', 'terms', field='am_pm')\
           .bucket('by_time', 'terms', field='time')
     response = s.execute()
