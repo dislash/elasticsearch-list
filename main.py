@@ -15,7 +15,7 @@ def index():
     s = Search(using=elastic, index="daily")
     category_1 = Q('term',category=1)
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
-          .A('1', category_1)\
+          .bucket('1', 'filter', query.Q('term', category=1))\
           .bucket('am', 'terms', field='am_pm')\
           .bucket('by_time', 'terms', field='time')
     response = s.execute()
