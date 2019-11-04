@@ -30,20 +30,43 @@
                     {% for item in book[book.id] %}
                         {% if item.category == '1' and item.am_pm == 'am' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% elif  item.category == '1' and item.am_pm == 'pm' %}
+                        {% else %}
+                            <td>-</td>
+                        {% endif %}
+                        {% if  item.category == '1' and item.am_pm == 'pm' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% elif item.category == '2' and item.am_pm == 'am' %}
+                        {% else %}
+                            <td>-</td>
+                        {% endif %}
+                        {% if item.category == '2' and item.am_pm == 'am' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% elif item.category == '2' and item.am_pm == 'pm' %}
+                        {% else %}
+                            <td>-</td>
+                        {% endif %}
+                        {% if item.category == '2' and item.am_pm == 'pm' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% elif item.category == '3' and item.am_pm == 'am' %}
+                        {% else %}
+                            <td>-</td>
+                        {% endif %}
+                        {% if item.category == '3' and item.am_pm == 'am' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% elif item.category == '3' and item.am_pm == 'pm' %}
+                        {% else %}
+                            <td>-</td>
+                        {% endif %}
+                        {% if item.category == '3' and item.am_pm == 'pm' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% elif item.category == '4' and item.am_pm == 'am' %}
+                        {% else %}
+                            <td>-</td>
+                        {% endif %}
+                        {% if item.category == '4' and item.am_pm == 'am' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% elif item.category == '4' and item.am_pm == 'pm' %}
+                        {% else %}
+                            <td>-</td>
+                        {% endif %}
+                        {% if item.category == '4' and item.am_pm == 'pm' %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
+                        {% else %}
+                            <td>-</td>
                         {% endif %}
                     {% endfor %}
                 </tr>
