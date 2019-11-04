@@ -193,10 +193,18 @@ def index():
     )
     rows = []
     for tag1 in response['aggregations']['by_date']['buckets']:
-        items = []
+        entry = {'date': tag1['key_as_string']}
         if tag1['1']['am']['doc_count'] == 1:
-            entry = {'id':tag1['key_as_string'], 'title':tag1['doc_count'], 'category_1': tag1['1']['doc_count'], 'am': tag1['1']['am']['doc_count'], 'time': tag1['1']['am']['by_time']['buckets'][0]['key']}
-            rows.append(entry)
+            entry['1_am_time'] = tag1['1']['am']['by_time']['buckets'][0]['key']
+        else
+            entry['1_am_time'] = 0
+        endif
+        if tag1['1']['pm']['doc_count'] == 1:
+            entry['1_pm_time'] = tag1['1']['pm']['by_time']['buckets'][0]['key']
+        else
+            entry['1_pm_time'] = 0
+        endif
+        rows.append(entry)
         #for tag2 in tag1.category_1:
         #    item = {'1amtime':tag2.doc_count}
         #    items.append(item)
