@@ -26,7 +26,7 @@
             {% for daily in dailys %}
                 <tr>
                     <td>{{ daily.date }}</td>
-                    <td>{{ str(daily.1_am_time) }}</td>
+                    <td>{{ daily[1_am_time] }}</td>
                 </tr>
             {% else %}
                 <td>書籍が登録されていません</td>
