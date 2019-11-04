@@ -24,7 +24,173 @@ def index():
           .bucket('category_1_pm', category_1_pm)
           #.bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
           #.bucket('by_time', 'terms', field='time')
-    response = s.execute()
+    #response = s.execute()
+    response = elastic..search(
+        index="daily",
+        body={
+   "aggs": {
+    "by_date": {
+      "date_histogram": {
+        "field": "date",
+        "calendar_interval": "day",
+        "order": {
+           "_key": "desc"
+        }
+      },
+      "aggs": {
+        "1": {
+          "filter": {
+          	"term": {
+                "category": 1
+          	}
+          },
+          "aggs": {
+            "am": {
+              "filter" : {
+                "term": {
+                  "am_pm": "am"
+                }
+              },
+              "aggs": {
+                "by_time": {
+                  "terms": {
+                    "field": "time"
+                  }
+                }
+              }
+            },
+            "pm": {
+              "filter" : {
+                "term": {
+                  "am_pm": "pm"
+                }
+              },
+              "aggs": {
+                "by_time": {
+                  "terms": {
+                    "field": "time"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "filter": {
+          	"term": {
+                "category": 2
+          	}
+          },
+          "aggs": {
+            "am": {
+              "filter" : {
+                "term": {
+                  "am_pm": "am"
+                }
+              },
+              "aggs": {
+                "by_time": {
+                  "terms": {
+                    "field": "time"
+                  }
+                }
+              }
+            },
+            "pm": {
+              "filter" : {
+                "term": {
+                  "am_pm": "pm"
+                }
+              },
+              "aggs": {
+                "by_time": {
+                  "terms": {
+                    "field": "time"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "3": {
+          "filter": {
+          	"term": {
+                "category": 3
+          	}
+          },
+          "aggs": {
+            "am": {
+              "filter" : {
+                "term": {
+                  "am_pm": "am"
+                }
+              },
+              "aggs": {
+                "by_time": {
+                  "terms": {
+                    "field": "time"
+                  }
+                }
+              }
+            },
+            "pm": {
+              "filter" : {
+                "term": {
+                  "am_pm": "pm"
+                }
+              },
+              "aggs": {
+                "by_time": {
+                  "terms": {
+                    "field": "time"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "4": {
+          "filter": {
+          	"term": {
+                "category": 4
+          	}
+          },
+          "aggs": {
+            "am": {
+              "filter" : {
+                "term": {
+                  "am_pm": "am"
+                }
+              },
+              "aggs": {
+                "by_time": {
+                  "terms": {
+                    "field": "time"
+                  }
+                }
+              }
+            },
+            "pm": {
+              "filter" : {
+                "term": {
+                  "am_pm": "pm"
+                }
+              },
+              "aggs": {
+                "by_time": {
+                  "terms": {
+                    "field": "time"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+        }
+    )
     rows = []
     for tag1 in response.aggregations.by_date.buckets:
         items = []
