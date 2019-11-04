@@ -23,46 +23,18 @@
             </tr>
         </thead>
         <tbody>
-            {% for book in books %}
-                {% if book.title > 0 %} 
+            {% for daily in dailys %}
                 <tr>
-                    <td>{{ book.id }}</td>
-                    {% for item in book[book.id] %}
-                        {% if item.category == '1' and item.category_count == 2 %}
-                            <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                            <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% elif item.category == '1' and item.category_count == 1 %}
-                            {% if item.am_pm == "am" %}
-                                <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                                <td>-</td>
-                            {% else %}
-                                <td>-</td>
-                                <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                            {% endif %}
-                        {% else %}
-                            <td colspan="2">-</td>
-                            {% if item.category == '1' and item.am_pm == 'pm' %}
-                                <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                            {% else %}
-                                <td>-</td>
-                                {% if item.category == '2' %}
-                                    <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                                {% else %}
-                                    <td colspan="2">-</td>
-                                    {% if item.category == '3' %}
-                                        <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                                    {% else %}
-                                        <td colspan="2">-</td>
-                                        {% if item.category == '4' %}
-                                            <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                                        {% endif %}
-                                    {% endif %}
-                                {% endif %}
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
+                    <td>{{ daily.date }}</td>
+                    <td>{{ daily.1_am_time }}</td>
+                    <td>{{ daily.1_pm_time }}</td>
+                    <td>{{ daily.2_am_time }}</td>
+                    <td>{{ daily.2_pm_time }}</td>
+                    <td>{{ daily.3_am_time }}</td>
+                    <td>{{ daily.3_pm_time }}</td>
+                    <td>{{ daily.4_am_time }}</td>
+                    <td>{{ daily.4_pm_time }}</td>
                 </tr>
-                {% endif %}
             {% else %}
                 <td>書籍が登録されていません</td>
             {% endfor %}
