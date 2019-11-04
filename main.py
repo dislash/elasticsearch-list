@@ -23,7 +23,7 @@ def index():
     rows = []
     for tag1 in response.aggregations.by_date.buckets:
         items = []
-        entry = {'id':tag1.key_as_string, 'title':tag1.doc_count, 'category_1': tag1.category_1.doc_count, 'am': tag1.category_1.am.doc_count, 'pm': tag1.category_1.pm.doc_count}
+        entry = {'id':tag1.key_as_string, 'title':tag1.doc_count, 'category_1': tag1.category_1.doc_count, 'am': tag1.category_1.am.doc_count, 'pm': tag1.category_1.am.pm.doc_count}
         rows.append(entry)
         #for tag2 in tag1.category_1:
         #    item = {'1amtime':tag2.doc_count}
