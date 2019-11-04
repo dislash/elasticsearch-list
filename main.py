@@ -18,8 +18,8 @@ def index():
           .bucket('category_1', 'filter', query.Q('term', category=1))\
           .bucket('am', 'filter', query.Q('term', am_pm='am'))\
           .bucket('by_time', 'terms', field='time')
-          .bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
-          .bucket('by_time', 'terms', field='time')
+          #.bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
+          #.bucket('by_time', 'terms', field='time')
     response = s.execute()
     rows = []
     for tag1 in response.aggregations.by_date.buckets:
