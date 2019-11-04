@@ -13,14 +13,16 @@
         </thead>
         <tbody>
             {% for book in books %}
-            <tr>
-                <td>{{ book.id }}</td>
-                <td>{{ book.title }}</td>
-                {% for item in book[book.id] %}
-                    <td>{{ item.category }}</td>
-                    <td>{{ item.time }}</td>
-                {% endfor %}
-            </tr>
+                {% if book.title > 0 %} 
+                <tr>
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.title }}</td>
+                    {% for item in book[book.id] %}
+                        <td>{{ item.category }}</td>
+                        <td>{{ item.time }}</td>
+                    {% endfor %}
+                </tr>
+                {% endif %}
             {% else %}
                 <td>書籍が登録されていません</td>
             {% endfor %}
