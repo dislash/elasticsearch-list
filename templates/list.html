@@ -23,19 +23,19 @@
             </tr>
         </thead>
         <tbody>
-            {% for book in books %}
-                {% if int(book.title) > 0 %} 
-                <tr>
-                    <td>{{ book.id }}</td>
-                    {% for item in book[book.id] %}
-                        <td>{{ item.category }}</td>
-                        <td>{{ item.time }}</td>
-                    {% endfor %}
-                </tr>
-                {% endif %}
-            {% else %}
-                <td>書籍が登録されていません</td>
-            {% endfor %}
+            #{% for book in books %}
+            #    {% if int(book.title) > 0 %} 
+            #    <tr>
+            #        <td>{{ book.id }}</td>
+            #        {% for item in book[book.id] %}
+            #            <td>{{ item.category }}</td>
+            #            <td>{{ item.time }}</td>
+            #        {% endfor %}
+            #    </tr>
+            #    {% endif %}
+            #{% else %}
+            #    <td>書籍が登録されていません</td>
+            #{% endfor %}
         </tbody>
     </table>
 </div>
