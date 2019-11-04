@@ -12,16 +12,16 @@ elastic = Elasticsearch([{'host': '34.97.218.155', 'port': 9200}])
 
 @app.route("/")
 def index():
-    s = Search(using=elastic, index="daily")
-    category_1_am = aggs.bucket('category_1_am', 'filter', query.Q('term', category=1))\
-                        .bucket('am', 'filter', query.Q('term', am_pm='am'))\
-                        .bucket('by_time', by_time)
-    category_1_pm = aggs.bucket('category_1_pm', 'filter', query.Q('term', category=1))\
-                        .bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
-                        .bucket('by_time', by_time)
-    s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
-          .bucket('category_1_am', category_1_am)\
-          .bucket('category_1_pm', category_1_pm)
+    #s = Search(using=elastic, index="daily")
+    #category_1_am = aggs.bucket('category_1_am', 'filter', query.Q('term', category=1))\
+    #                    .bucket('am', 'filter', query.Q('term', am_pm='am'))\
+    #                    .bucket('by_time', by_time)
+    #category_1_pm = aggs.bucket('category_1_pm', 'filter', query.Q('term', category=1))\
+    #                    .bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
+    #                    .bucket('by_time', by_time)
+    #s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
+    #      .bucket('category_1_am', category_1_am)\
+    #      .bucket('category_1_pm', category_1_pm)
           #.bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
           #.bucket('by_time', 'terms', field='time')
     #response = s.execute()
