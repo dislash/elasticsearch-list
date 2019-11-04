@@ -2,7 +2,7 @@
 
 from flask import Flask, request, render_template
 from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search, Q, A
+from elasticsearch_dsl import Search, Q, query
 import os
 
 app = Flask(__name__)
