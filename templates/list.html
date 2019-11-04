@@ -28,37 +28,22 @@
                 <tr>
                     <td>{{ book.id }}</td>
                     {% for item in book[book.id] %}
-                        {% if item.category == '1' %}
-                            {% if item.am_pm == 'am' %}
-                                <td>{{ item.time }}</td>
-                            {% endif%}
-                            {% if item.am_pm == 'pm' %}
-                                <td>{{ item.time }}</td>
-                            {% endif%}
-                        {% endif %}
-                        {% if item.category == '2' %}
-                            {% if item.am_pm == 'am' %}
-                                <td>{{ item.time }}</td>
-                            {% endif%}
-                            {% if item.am_pm == 'pm' %}
-                                <td>{{ item.time }}</td>
-                            {% endif%}
-                        {% endif %}
-                        {% if item.category == '3' %}
-                            {% if item.am_pm == 'am' %}
-                                <td>{{ item.time }}</td>
-                            {% endif%}
-                            {% if item.am_pm == 'pm' %}
-                                <td>{{ item.time }}</td>
-                            {% endif%}
-                        {% endif %}
-                        {% if item.category == '4' %}
-                            {% if item.am_pm == 'am' %}
-                                <td>{{ item.time }}</td>
-                            {% endif%}
-                            {% if item.am_pm == 'pm' %}
-                                <td>{{ item.time }}</td>
-                            {% endif%}
+                        {% if item.category == '1' && item.am_pm == 'am' %}
+                            <td>{{ item.time }}</td>
+                        {% elsif  item.category == '1' && item.am_pm == 'pm' %}
+                            <td>{{ item.time }}</td>
+                        {% elsif item.category == '2' && item.am_pm == 'am' %}
+                            <td>{{ item.time }}</td>
+                        {% elsif item.category == '2' && item.am_pm == 'pm' %}
+                            <td>{{ item.time }}</td>
+                        {% elsif item.category == '3' && item.am_pm == 'am' %}
+                            <td>{{ item.time }}</td>
+                        {% elsif item.category == '3' && item.am_pm == 'pm' %}
+                            <td>{{ item.time }}</td>
+                        {% elsif item.category == '4' && item.am_pm == 'am' %}
+                            <td>{{ item.time }}</td>
+                        {% elsif item.category == '4' && item.am_pm == 'pm' %}
+                            <td>{{ item.time }}</td>
                         {% endif %}
                     {% endfor %}
                 </tr>
