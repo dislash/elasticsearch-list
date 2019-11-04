@@ -13,9 +13,9 @@ elastic = Elasticsearch([{'host': '34.97.218.155', 'port': 9200}])
 @app.route("/")
 def index():
     s = Search(using=elastic, index="daily")
-    category_1 = Filter(Q('term',category=1))
+    category_1 = Q('term',category=1)
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
-          .bucket('1', category_1)\
+          .filter(category_1)\
           .bucket('am', 'terms', field='am_pm')\
           .bucket('by_time', 'terms', field='time')
     response = s.execute()
