@@ -16,11 +16,11 @@ def index():
     by_time = A("terms", field="time")
     am = query.Q('term', am_pm='am')
     pm = query.Q('term', am_pm='pm')
-    am.bucket('by_time', by_time)
-    pm.bucket('by_time', by_time)
+    am.bucket('by_time', 'filter', by_time)
+    pm.bucket('by_time', 'filter', by_time)
     category_1 = query.Q('term', category=1)
-    category_1.bucket('am',am)
-    category_1.bucket('pm',pm)
+    category_1.bucket('am','filter', am)
+    category_1.bucket('pm','filter', pm)
     s.aggs.bucket('by_date', 'date_histogram', field='date', interval='day', order={'_key': 'desc'})\
           .bucket('category_1', category_1)
           #.bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
