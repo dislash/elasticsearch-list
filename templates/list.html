@@ -32,27 +32,19 @@
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td colspan="2">-</td>
-                        {% endif %}
-                    {% endfor %}
-                    {% for item in book[book.id] %}
-                        {% if  item.category == '2' %}
-                            <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% else %}
-                            <td colspan="2">-</td>
-                        {% endif %}
-                    {% endfor %}
-                    {% for item in book[book.id] %}
-                        {% if  item.category == '3' %}
-                            <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% else %}
-                            <td colspan="2">-</td>
-                        {% endif %}
-                    {% endfor %}
-                    {% for item in book[book.id] %}
-                        {% if  item.category == '4' %}
-                            <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
-                        {% else %}
-                            <td colspan="2">-</td>
+                            {% if item.category == '2' %}
+                                <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
+                            {% else %}
+                                <td colspan="2">-</td>
+                                {% if item.category == '3' %}
+                                    <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
+                                {% else %}
+                                    <td colspan="2">-</td>
+                                    {% if item.category == '4' %}
+                                        <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
+                                    {% endif %}
+                                {% end if %}
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </tr>
