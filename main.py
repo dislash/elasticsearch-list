@@ -201,9 +201,8 @@ def index():
         endif
         if tag1['1']['pm']['doc_count'] == 1:
             entry['1_pm_time'] = tag1['1']['pm']['by_time']['buckets'][0]['key']
-        else
+        else:
             entry['1_pm_time'] = 0
-        endif
         rows.append(entry)
         #for tag2 in tag1.category_1:
         #    item = {'1amtime':tag2.doc_count}
