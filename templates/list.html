@@ -28,42 +28,42 @@
                 <tr>
                     <td>{{ book.id }}</td>
                     {% for item in book[book.id] %}
-                        {% if item.category == '1' and item.am_pm == 'am' %}
+                        {% if item.category == '1' and item.am_pm == 'am' and item.time is Not None%}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td>-</td>
                         {% endif %}
-                        {% if  item.category == '1' and item.am_pm == 'pm' %}
+                        {% if  item.category == '1' and item.am_pm == 'pm' and item.time is Not None %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td>-</td>
                         {% endif %}
-                        {% if item.category == '2' and item.am_pm == 'am' %}
+                        {% if item.category == '2' and item.am_pm == 'am' and item.time is Not None %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td>-</td>
                         {% endif %}
-                        {% if item.category == '2' and item.am_pm == 'pm' %}
+                        {% if item.category == '2' and item.am_pm == 'pm' and item.time is Not None %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td>-</td>
                         {% endif %}
-                        {% if item.category == '3' and item.am_pm == 'am' %}
+                        {% if item.category == '3' and item.am_pm == 'am' and item.time is Not None %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td>-</td>
                         {% endif %}
-                        {% if item.category == '3' and item.am_pm == 'pm' %}
+                        {% if item.category == '3' and item.am_pm == 'pm' and item.time is Not None %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td>-</td>
                         {% endif %}
-                        {% if item.category == '4' and item.am_pm == 'am' %}
+                        {% if item.category == '4' and item.am_pm == 'am' and item.time is Not None %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td>-</td>
                         {% endif %}
-                        {% if item.category == '4' and item.am_pm == 'pm' %}
+                        {% if item.category == '4' and item.am_pm == 'pm' and item.time is Not None %}
                             <td>{{ item.category }}{{ item.am_pm }}{{ item.time }}</td>
                         {% else %}
                             <td>-</td>
