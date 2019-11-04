@@ -25,7 +25,7 @@ def index():
           #.bucket('pm', 'filter', query.Q('term', am_pm='pm'))\
           #.bucket('by_time', 'terms', field='time')
     #response = s.execute()
-    response = elastic..search(
+    response = elastic.search(
         index="daily",
         body={
    "aggs": {
