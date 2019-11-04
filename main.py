@@ -195,37 +195,37 @@ def index():
     for tag1 in response['aggregations']['by_date']['buckets']:
         entry = {'date': tag1['key_as_string']}
         if tag1['1']['am']['doc_count'] == 1:
-            entry['1_am_time'] = tag1['1']['am']['by_time']['buckets'][0]['key']
+            entry['c1_am_time'] = str(tag1['1']['am']['by_time']['buckets'][0]['key'])
         else:
-            entry['1_am_time'] = 0
+            entry['c1_am_time'] = '-'
         if tag1['1']['pm']['doc_count'] == 1:
-            entry['1_pm_time'] = tag1['1']['pm']['by_time']['buckets'][0]['key']
+            entry['c1_pm_time'] = str(tag1['1']['pm']['by_time']['buckets'][0]['key'])
         else:
-            entry['1_pm_time'] = 0
+            entry['c1_pm_time'] = '-'
         if tag1['2']['am']['doc_count'] == 1:
-            entry['2_am_time'] = tag1['2']['am']['by_time']['buckets'][0]['key']
+            entry['c2_am_time'] = str(tag1['2']['am']['by_time']['buckets'][0]['key'])
         else:
-            entry['2_am_time'] = 0
+            entry['c2_am_time'] = '-'
         if tag1['2']['pm']['doc_count'] == 1:
-            entry['2_pm_time'] = tag1['2']['pm']['by_time']['buckets'][0]['key']
+            entry['c2_pm_time'] = str(tag1['2']['pm']['by_time']['buckets'][0]['key'])
         else:
-            entry['2_pm_time'] = 0
+            entry['c2_pm_time'] = '-'
         if tag1['3']['am']['doc_count'] == 1:
-            entry['3_am_time'] = tag1['3']['am']['by_time']['buckets'][0]['key']
+            entry['c3_am_time'] = str(tag1['3']['am']['by_time']['buckets'][0]['key'])
         else:
-            entry['3_am_time'] = 0
+            entry['c3_am_time'] = '-'
         if tag1['3']['pm']['doc_count'] == 1:
-            entry['3_pm_time'] = tag1['3']['pm']['by_time']['buckets'][0]['key']
+            entry['c3_pm_time'] = str(tag1['3']['pm']['by_time']['buckets'][0]['key'])
         else:
-            entry['3_pm_time'] = 0
+            entry['c3_pm_time'] = '-'
         if tag1['4']['am']['doc_count'] == 1:
-            entry['4_am_time'] = tag1['4']['am']['by_time']['buckets'][0]['key']
+            entry['c4_am_time'] = str(tag1['4']['am']['by_time']['buckets'][0]['key'])
         else:
-            entry['4_am_time'] = 0
+            entry['c4_am_time'] = '-'
         if tag1['4']['pm']['doc_count'] == 1:
-            entry['4_pm_time'] = tag1['4']['pm']['by_time']['buckets'][0]['key']
+            entry['c4_pm_time'] = str(tag1['4']['pm']['by_time']['buckets'][0]['key'])
         else:
-            entry['4_pm_time'] = 0
+            entry['c4_pm_time'] = '-'
         rows.append(entry)
         #for tag2 in tag1.category_1:
         #    item = {'1amtime':tag2.doc_count}
