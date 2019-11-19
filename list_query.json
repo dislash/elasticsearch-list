@@ -1,0 +1,28 @@
+{
+	"aggs": {
+	    "by_date": {                  
+	        "date_histogram": {
+	            "field": "date",
+	            "interval": "1d",
+	            "order": {
+	            	"_key": "desc"
+	            }
+	        },
+	        "aggs": {
+				"by_category": {
+					"terms": {
+	    				"field": "category",
+	    				"min_doc_count" : 0
+					},
+					"aggs": {
+						"count_sum": {
+							"sum": {
+								"field": "time"
+							}
+						}
+					}
+				}
+			}
+	    }
+	}
+}
